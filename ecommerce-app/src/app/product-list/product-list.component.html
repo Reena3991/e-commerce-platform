@@ -1,0 +1,30 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Product List</mat-card-title>
+    <mat-card-content>
+      <ul>
+        <li *ngFor="let product of products">
+          {{ product.name }} - {{ product.price | currency }}
+        </li>
+      </ul>
+    </mat-card-content>
+    <mat-card-title>Add Product</mat-card-title>
+    <mat-card-content>
+      <form>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="newProduct.name" placeholder="Name" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Price</mat-label>
+          <input matInput [(ngModel)]="newProduct.price" placeholder="Price" type="number" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput [(ngModel)]="newProduct.description" placeholder="Description"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addProduct()">Add Product</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
