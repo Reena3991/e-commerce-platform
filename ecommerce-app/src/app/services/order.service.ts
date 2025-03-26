@@ -12,14 +12,14 @@ export class OrderService {
   constructor(private http: HttpClient) {}
 
   createOrder(order: Order): Observable<any> {
-    return this.http.post(this.baseUrl, order);
+    return this.http.post(this.apiUrl, order);
   }
 
   getUserOrders(userId: string): Observable<Order[]> {
-    return this.http.get<Order[]>(`${this.baseUrl}/user/${userId}`);
+    return this.http.get<Order[]>(this.apiUrl);
   }
 
   getOrderById(orderId: string): Observable<Order> {
-    return this.http.get<Order>(`${this.baseUrl}/${orderId}`);
+    return this.http.get<Order>(`${this.apiUrl}/${orderId}`);
   }
 }
