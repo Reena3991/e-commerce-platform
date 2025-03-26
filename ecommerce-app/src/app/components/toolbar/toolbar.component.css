@@ -1,6 +1,6 @@
 mat-toolbar {
-  background-color: lavender; /* Set black background for the toolbar */
-  color: white; /* Set the text color to white for better contrast */
+  background-color: pink;
+  color: black;
 }
 
 .header-title {
