@@ -1,0 +1,44 @@
+<mat-toolbar color="black">
+  <img [src]="imagePath" alt="Book Image" class="product-image" />
+  <span class="spacer"></span>
+
+  <!-- Search Input -->
+  <mat-form-field appearance="fill" class="search-field">
+    <mat-label>Search</mat-label>
+    <input matInput [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()" placeholder="Search products">
+  </mat-form-field>
+
+  <!-- Category Filter -->
+  <mat-form-field appearance="fill" class="filter-option">
+    <mat-label>Filter by Category</mat-label>
+    <mat-select (selectionChange)="onCategoryChange($event.value)">
+      <mat-option value="">All</mat-option>
+      <mat-option value="book">Books</mat-option>
+      <mat-option value="electronics">Electronics</mat-option>
+      <mat-option value="clothing">Clothing</mat-option>
+      <mat-option value="home kitchen">Home Kitchen</mat-option>
+      <mat-option value="foot wear">Foot Wear</mat-option>
+      <mat-option value="cosmetics">Cosmetics</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Icons -->
+  <button mat-icon-button (click)="openWishlist()">
+    <mat-icon>favorite</mat-icon>
+    <span class="wishlist-count">{{ wishlistCount }}</span>
+  </button>
+  <button mat-icon-button (click)="openCart()">
+    <mat-icon>shopping_cart</mat-icon>
+    <span class="cart-count">{{ cartCount }}</span>
+  </button>
+
+  <button mat-icon-button (click)="openAccount()">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="account-sidebar" *ngIf="isAccountPanelOpen">
+  <app-user-profile [userProfile]="userProfile" [orders]="orders"></app-user-profile>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" [class.visible]="isAccountPanelOpen" (click)="openAccount()"></div>

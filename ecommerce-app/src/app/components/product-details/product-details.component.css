@@ -1,0 +1,54 @@
+
+.header-title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.search-field {
+  margin-right: 16px;
+  min-width: 200px;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-details {
+  max-width: 400px;
+  width: 100%;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #4B0082;
+
+}
+
+.product-details {
+  position: relative;
+}
+
+.wishlist-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.red-icon {
+  color: red;
+}
+

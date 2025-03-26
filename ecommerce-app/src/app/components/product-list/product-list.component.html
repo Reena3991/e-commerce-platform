@@ -1,0 +1,31 @@
+<app-toolbar
+  (searchChange)="onSearchChange($event)"
+  (categoryChange)="filterByCategory($event)">
+</app-toolbar>
+
+<!-- Product Grid -->
+<mat-card class="product-list" *ngIf="filterProducts().length > 0">
+  <div class="product-grid">
+    <div *ngFor="let product of filterProducts()" class="product-card" (click)="goToProductDetail(product.id)">
+      <div class="product-header">
+        <mat-card-title class="product-name">{{ product.name }}</mat-card-title>
+        <button mat-icon-button class="wishlist-icon" (click)="toggleWishlist(product); $event.stopPropagation();">
+          <mat-icon [ngClass]="{'red-icon': isInWishlist(product)}">favorite</mat-icon>
+        </button>
+      </div>
+      <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image" />
+      <mat-card-subtitle>{{ product.price | currency }}</mat-card-subtitle>
+      <mat-card-content>
+        <p>{{ product.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="addToCart(product); $event.stopPropagation();">Add to Cart</button>
+      </mat-card-actions>
+    </div>
+  </div>
+</mat-card>
+
+<!-- No Products Message -->
+<div *ngIf="filterProducts().length === 0" class="no-products-message">
+  No products available.
+</div>

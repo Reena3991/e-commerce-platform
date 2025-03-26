@@ -1,0 +1,24 @@
+<app-toolbar
+  (searchChange)="onSearchChange($event)"
+  (categoryChange)="filterByCategory($event)">
+</app-toolbar>
+
+<div class="container">
+  <mat-card *ngIf="product" class="product-details">
+    <mat-card-title>{{ product.name }}</mat-card-title>
+    <button mat-icon-button class="wishlist-icon" (click)="toggleWishlist(product)">
+      <mat-icon [ngClass]="{'red-icon': isInWishlist(product)}">favorite</mat-icon>
+    </button>
+    <img mat-card-image [src]="product.imageUrl" alt="{{ product.name }}" class="product-image">
+    <mat-card-content>
+      <p>{{ product.description }}</p>
+      <span class="price">${{ product.price }}</span>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="addToCart(product)">Add to Cart</button>
+    </mat-card-actions>
+    <mat-divider></mat-divider>
+    <h3>Reviews</h3>
+    <app-review [productId]="product.id"></app-review>
+  </mat-card>
+</div>

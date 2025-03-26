@@ -1,0 +1,22 @@
+<div class="checkout">
+  <h2>Checkout</h2>
+  <form (submit)="onCheckout()" class="checkout-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Shipping Address</mat-label>
+      <input matInput [(ngModel)]="shippingAddress" name="address" required />
+      <mat-error *ngIf="!shippingAddress">Address is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Payment Method</mat-label>
+      <mat-select [(ngModel)]="paymentMethod" name="payment" required>
+        <mat-option value="credit">Credit Card</mat-option>
+        <mat-option value="paypal">PayPal</mat-option>
+        <mat-option value="bank">Bank Transfer</mat-option>
+      </mat-select>
+      <mat-error *ngIf="!paymentMethod">Payment method is required</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Place Order</button>
+  </form>
+</div>

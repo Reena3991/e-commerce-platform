@@ -1,0 +1,14 @@
+<div class="order-tracking">
+  <h2>Your Orders</h2>
+  <div *ngIf="orders.length > 0; else noOrders">
+    <div class="order-item" *ngFor="let order of orders">
+      <h3>Order ID: {{ order.id }}</h3>
+      <span>Status: {{ order.status }}</span>
+      <span>Total: ${{ order.totalAmount }}</span>
+      <span>Date: {{ order.orderDate | date }}</span>
+    </div>
+  </div>
+  <ng-template #noOrders>
+    <p>You have no orders yet.</p>
+  </ng-template>
+</div>

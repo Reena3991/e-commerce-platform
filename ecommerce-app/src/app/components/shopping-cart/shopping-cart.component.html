@@ -1,0 +1,26 @@
+<div class="shopping-cart">
+  <mat-card>
+    <mat-card-title>Your Shopping Cart</mat-card-title>
+    <mat-card-content>
+      <div *ngIf="cartItems.length > 0; else emptyCart">
+        <div class="cart-item" *ngFor="let item of cartItems">
+          <mat-card class="item-card">
+            <mat-card-title>{{ item.name }}</mat-card-title>
+            <img mat-card-image [src]="item.imageUrl" alt="{{ item.name }}" class="product-image" />
+            <mat-card-content>
+              <span class="price">${{ item.price }}</span>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button color="warn" (click)="removeFromCart(item.id)">Remove</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <h3>Total: ${{ getTotalPrice() }}</h3>
+        <button mat-raised-button color="primary" routerLink="/checkout">Proceed to Checkout</button>
+      </div>
+      <ng-template #emptyCart>
+        <p>Your cart is empty. Start adding items!</p>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>

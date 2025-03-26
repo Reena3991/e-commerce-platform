@@ -20,4 +20,12 @@ public class ProductService {
     public Product createProduct(Product product) {
         return productRepository.save(product);
     }
+
+    public Product getProductById(Long id) {
+        return productRepository.getOne(id);
+    }
+
+    public List<Product> saveProducts(List<Product> products) {
+        return productRepository.saveAll(products);
+    }
 }

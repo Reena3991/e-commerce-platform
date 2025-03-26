@@ -1,0 +1,19 @@
+.login-form {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+mat-card {
+  max-width: 400px;
+  width: 100%;
+}
+
+.card-title {
+  text-align: center;
+  color: #4B0082;
+}
+
+.custom-form-field {
+  width: 100%;
+}
